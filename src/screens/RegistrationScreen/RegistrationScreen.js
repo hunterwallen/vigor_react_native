@@ -6,7 +6,7 @@ import { firebase } from '../../firebase/config'
 import axios from 'axios'
 
 export default function RegistrationScreen({navigation}) {
-    const [fullName, setFullName] = useState('')
+    const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -28,7 +28,7 @@ export default function RegistrationScreen({navigation}) {
                 const data = {
                     id: uid,
                     email,
-                    fullName,
+                    firstName,
                 };
                 const usersRef = firebase.firestore().collection('users')
                 usersRef
@@ -36,12 +36,12 @@ export default function RegistrationScreen({navigation}) {
                     .set(data)
                     .then(() => {
                       let axiosData = {
-                        name: data.fullName,
+                        name: data.firstName,
                         email: data.email,
                         firestoreId: data.id
                       }
                       axios.post('https://mighty-river-62498.herokuapp.com/patients', axiosData).then(()=>{
-                        navigation.navigate('Home', {name: data.fullName, id: data.id, email: data.email})
+                        navigation.navigate('Home', {name: data.firstName, id: data.id, email: data.email})
                       })
                     })
                     .catch((error) => {
@@ -64,10 +64,10 @@ export default function RegistrationScreen({navigation}) {
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Full Name'
+                    placeholder='First Name'
                     placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setFullName(text)}
-                    value={fullName}
+                    onChangeText={(text) => setFirstName(text)}
+                    value={firstName}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
