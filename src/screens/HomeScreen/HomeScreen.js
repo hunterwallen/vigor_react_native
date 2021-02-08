@@ -3,12 +3,24 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import { HeaderLeftButton } from '@react-navigation/native'
+
+
+
 
 export default function LoginScreen({navigation}) {
 
     const onFooterLinkPress = () => {
-        navigation.navigate('Login')
+        navigation.navigate('Login', {user: null})
     }
+    navigation.setOptions({
+      headerLeft: () => {
+        <HeaderLeftButton onPress = {() => {
+          navigation.navigate('Home')
+        }} />
+      }
+    })
+
 
     return (
         <View style={styles.container}>

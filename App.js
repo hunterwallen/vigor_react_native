@@ -10,6 +10,7 @@ if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
 
+
 export default function App() {
 
   const [user, setUser] = useState(null)
@@ -18,14 +19,22 @@ export default function App() {
 
 
   return (
-    <NavigationContainer>
+
+<>
+
+    <NavigationContainer name="auth">
       <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Home">
+            <Stack.Screen name="Login">
+            { props => <LoginScreen {...props} extraData={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Home" >
               {props => <HomeScreen {...props} extraData={user} />}
             </Stack.Screen>
             <Stack.Screen name="Registration" component={RegistrationScreen} />
       </Stack.Navigator>
+
     </NavigationContainer>
+
+</>
   );
 }
