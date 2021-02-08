@@ -37,6 +37,11 @@ export default function RegistrationScreen({navigation, route}) {
           patientId: patientId
         }
         console.log(medData);
+        axios.post('https://mighty-river-62498.herokuapp.com/medications', medData).then((response)=>{
+          axios.get('https://mighty-river-62498.herokuapp.com/medications/' + route.params.user.id ).then((response)=> {
+              navigation.navigate('Home', {name: route.params.user.firstName, id: route.params.user.id, email: route.params.user.email, meds: response.data})
+          })
+        })
       }
     }
 

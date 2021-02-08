@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import axios from 'axios'
 import { firebase } from '../../firebase/config'
 
 export default function LoginScreen({navigation}) {
@@ -24,8 +25,10 @@ export default function LoginScreen({navigation}) {
                         let user = firestoreDocument.data()
 
                         console.log(user);
+                        axios.get('https://mighty-river-62498.herokuapp.com/medications/' + user.id).then((response) => {
+                          navigation.navigate('Home', {name: user.firstName, id: user.id, email: user.email, meds: response.data})
+                        })
 
-                        navigation.navigate('Home', {name: user.firstName, id: user.id, email: user.email})
                     })
                     .catch(error => {
                         alert(error)
