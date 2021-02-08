@@ -41,7 +41,7 @@ export default function RegistrationScreen({navigation}) {
                         firestoreId: data.id
                       }
                       axios.post('https://mighty-river-62498.herokuapp.com/patients', axiosData).then(()=>{
-                        navigation.navigate('Home', {user: data})
+                        navigation.navigate('Home', {name: data.fullName, id: data.id, email: data.email})
                       })
                     })
                     .catch((error) => {
