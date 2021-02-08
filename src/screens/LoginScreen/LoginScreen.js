@@ -25,7 +25,7 @@ export default function LoginScreen({navigation}) {
 
                         console.log(user);
 
-                        navigation.navigate('Home', {user})
+                        navigation.navigate('Home', {name: user.fullName, id: user.id, email: user.email})
                     })
                     .catch(error => {
                         alert(error)

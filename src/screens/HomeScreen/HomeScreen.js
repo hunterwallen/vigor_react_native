@@ -1,25 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config'
-import { HeaderLeftButton } from '@react-navigation/native'
+import { HeaderBackButton } from '@react-navigation/stack'
 
 
-
-
-export default function LoginScreen({navigation}) {
+export default function HomeScreen({navigation, route}) {
 
     const onFooterLinkPress = () => {
         navigation.navigate('Login', {user: null})
     }
-    navigation.setOptions({
-      headerLeft: () => {
-        <HeaderLeftButton onPress = {() => {
-          navigation.navigate('Home')
-        }} />
-      }
-    })
+
+
+
 
 
     return (
@@ -32,6 +26,7 @@ export default function LoginScreen({navigation}) {
                     source={require('../../../assets/icon.png')}
                 />
                 <View style={styles.footerView}>
+                    <Text>{route.params.name}</Text>
                      <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log Out</Text>
                 </View>
             </KeyboardAwareScrollView>
