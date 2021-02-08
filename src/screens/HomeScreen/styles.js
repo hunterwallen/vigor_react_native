@@ -33,4 +33,16 @@ export default StyleSheet.create({
         alignSelf: "center",
         margin: 30
     },
+    medCard: {
+      height: 150,
+      width: 150
+    },
+    medCardContainer: {
+      width: "100%",
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      alignContent: "flex-start"
+    }
 })
