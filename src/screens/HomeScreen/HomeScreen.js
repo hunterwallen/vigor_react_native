@@ -33,12 +33,13 @@ export default function HomeScreen({navigation, route}) {
                     {route.params.meds.map((med) => {
                       return(
                         <Pressable style={styles.medCard} onPress={() => onMedPress(med)}>
-                          <Text style={styles.medTitles}>Medication Name: </Text>
-                          <Text style={styles.medInfo}>{med.name}</Text>
-                          <Text style={styles.medTitles}>Dosage: </Text>
-                          <Text style={styles.medInfo}>{med.dosage}</Text>
-                          <Text style={styles.medTitles}>Dosage Frequency: </Text>
-                          <Text style={styles.medInfo}>{med.frequencyInt}x {med.frequencyUnit}</Text>
+                          <View style={styles.medCardTitleBox}>
+                            <Text style={styles.medName}>{med.name}</Text>
+                          </View>
+                          <View style={styles.dosageFrequencyBox}>
+                            <Text style={styles.medInfo}>{med.dosage}</Text>
+                            <Text style={styles.medInfo}>{med.frequencyInt}x {med.frequencyUnit}</Text>
+                          </View>
 
                         </Pressable>
                       )

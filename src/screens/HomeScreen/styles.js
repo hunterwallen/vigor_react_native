@@ -7,7 +7,7 @@ export default StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignItems: 'center',
-        backgroundColor: "#ffffff"
+        backgroundColor: "#aaaaaa"
     },
     footerView: {
         flex: 1,
@@ -36,14 +36,32 @@ export default StyleSheet.create({
 
     },
     medCard: {
-      padding: 15,
+      width: "90%",
+
+      padding: 20,
       borderColor:"grey",
       borderStyle: "solid",
-      borderWidth: 2,
+      borderWidth: 1,
       margin: 5,
       borderRadius: 10,
       backgroundColor: "white",
-      elevation: 8
+      elevation: 8,
+      display: "flex",
+      flexDirection: "column",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+
+    },
+    medCardTitleBox: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "flex-start",
+
+    },
+    dosageFrequencyBox: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between"
     },
     mainHomeContentView: {
       display: "flex",
@@ -57,27 +75,30 @@ export default StyleSheet.create({
       textAlign: "center",
       padding: 10,
       backgroundColor: "#49a8de",
-      fontSize: 18,
-      elevation: 10
+      fontSize: 25,
+      elevation: 10,
+      color: "white"
     },
     medCardContainer: {
       width: "100%",
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "column",
       flexWrap: "wrap",
       justifyContent: "center",
-      alignContent: "flex-start",
+      alignContent: "center",
       paddingTop: 20,
-      paddingBottom: 20
+      paddingBottom: 20,
+
     },
     medInfo: {
       textAlign: "right",
       fontSize: 20
     },
-    medTitles: {
-      textAlign: "center",
-      fontWeight: "bold",
-      paddingTop: 5,
-      fontSize: 15
+    medName: {
+      fontSize: 25,
+      color: "#263a90",
+      paddingBottom: 10
+
     }
+
 })

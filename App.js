@@ -6,6 +6,8 @@ import { LoginScreen, HomeScreen, RegistrationScreen, AddMedScreen, MedScreen, E
 import { firebase } from './src/firebase/config'
 import { HeaderBackButton } from '@react-navigation/stack'
 
+import {styles} from './src/screens/styles.js'
+
 
 const Stack = createStackNavigator();
 
