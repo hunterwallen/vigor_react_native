@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import LoadingScreen from '../LoadingScreen/LoadingScreen'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import axios from 'axios'
@@ -10,6 +11,8 @@ export default function RegistrationScreen({navigation}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+
+    const [loading, setLoading] = useState(false)
 
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
@@ -24,6 +27,7 @@ export default function RegistrationScreen({navigation}) {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((response) => {
+                setLoading(true)
                 const uid = response.user.uid
                 const data = {
                     id: uid,
@@ -42,17 +46,30 @@ export default function RegistrationScreen({navigation}) {
                       }
                       axios.post('https://mighty-river-62498.herokuapp.com/patients', axiosData).then(()=>{
                         navigation.navigate('Home', {name: data.firstName, id: data.id, email: data.email, meds: []})
+                        setTimeout(()=> {
+                          setLoading(false)
+                        }, 1000)
                       })
                     })
                     .catch((error) => {
+                        setLoading(false)
                         alert(error)
                     });
             })
             .catch((error) => {
+              setLoading(false)
                 alert(error)
         });
     }
 
+
+    if (loading) {
+      return (
+        <>
+          <LoadingScreen/>
+        </>
+      )
+    } else {
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
@@ -111,4 +128,5 @@ export default function RegistrationScreen({navigation}) {
             </KeyboardAwareScrollView>
         </View>
     )
+  }
 }

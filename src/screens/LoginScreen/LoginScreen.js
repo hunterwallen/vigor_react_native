@@ -37,11 +37,13 @@ export default function LoginScreen({navigation}) {
                       })
                     })
                     .catch(error => {
+                        setLoading(false)
                         alert(error)
                     });
               }
             )
             .catch(error => {
+                setLoading(false)
                 alert(error)
             })
     }
