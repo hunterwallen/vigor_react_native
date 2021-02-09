@@ -39,18 +39,16 @@ export default function HomeScreen({navigation, route}) {
                           <Text style={styles.medInfo}>{med.dosage}</Text>
                           <Text style={styles.medTitles}>Dosage Frequency: </Text>
                           <Text style={styles.medInfo}>{med.frequencyInt}x {med.frequencyUnit}</Text>
-                          
+
                         </Pressable>
                       )
                     })}
                   </View>
                 </View>
 
-                <View>
-                  <Pressable onPress={onAddMedPress} style={styles.addMedButton}>
+                <TouchableOpacity onPress={onAddMedPress} style={styles.addMedButton}>
                     <Text style={styles.addMedButtonText}>New Medication</Text>
-                  </Pressable>
-                </View>
+                </TouchableOpacity>
 
                 <View style={styles.footerView}>
                     <Text>{route.params.name}</Text>

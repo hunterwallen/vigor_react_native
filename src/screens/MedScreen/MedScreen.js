@@ -44,11 +44,9 @@ export default function MedScreen({navigation, route}) {
           </View>
         </View>
 
-        <View>
-          <Pressable onPress={onEditMedPress} style={styles.addMedButton}>
-            <Text style={styles.addMedButtonText}>Edit Medication</Text>
-          </Pressable>
-        </View>
+        <TouchableOpacity onPress={onEditMedPress} style={styles.editMedButton}>
+            <Text style={styles.editMedButtonText}>Edit Medication</Text>
+        </TouchableOpacity>
 
       </KeyboardAwareScrollView>
     </View>

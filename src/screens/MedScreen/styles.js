@@ -36,5 +36,20 @@ export default StyleSheet.create({
       medInfo: {
         fontSize: 19,
         fontWeight: "bold"
+      },
+      editMedButton: {
+        backgroundColor: "#263a90",
+          marginLeft: 30,
+          marginRight: 30,
+          marginTop: 20,
+          height: 48,
+          borderRadius: 10,
+          alignItems: "center",
+          justifyContent: 'center'
+      },
+      editMedButtonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: "bold"
       }
 })

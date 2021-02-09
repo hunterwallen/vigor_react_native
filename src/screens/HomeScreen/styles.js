@@ -20,16 +20,14 @@ export default StyleSheet.create({
         fontSize: 16
     },
     addMedButton: {
-      width: 200,
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-      alignSelf: "center",
-      margin: 10,
-      backgroundColor: "#263a90",
-      borderRadius: 10,
-      elevation: 8
+        backgroundColor: "#263a90",
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20,
+        height: 48,
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: 'center'
     },
     addMedButtonText: {
       fontSize: 20,
