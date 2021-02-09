@@ -41,7 +41,7 @@ export default function RegistrationScreen({navigation}) {
                         firestoreId: data.id
                       }
                       axios.post('https://mighty-river-62498.herokuapp.com/patients', axiosData).then(()=>{
-                        navigation.navigate('Home', {name: data.firstName, id: data.id, email: data.email})
+                        navigation.navigate('Home', {name: data.firstName, id: data.id, email: data.email, meds: []})
                       })
                     })
                     .catch((error) => {
@@ -60,7 +60,7 @@ export default function RegistrationScreen({navigation}) {
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}
-                    source={require('../../../assets/icon.png')}
+                    source={require('../../../assets/VigorLogo.png')}
                 />
                 <TextInput
                     style={styles.input}
