@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View, Pressable} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 
@@ -7,6 +7,12 @@ import styles from './styles';
 export default function MedScreen({navigation, route}) {
 
   let med = route.params.med
+
+
+  const onEditMedPress = () => {
+    navigation.navigate('EditMed', {user: route.params.user, med: route.params.med})
+  }
+
 
   return(
     <View style={styles.container}>
@@ -36,6 +42,12 @@ export default function MedScreen({navigation, route}) {
             <Text style={styles.medTitles}>Refills Remaining: </Text>
             <Text style={styles.medInfo}>{route.params.med.refillsLeft}</Text>
           </View>
+        </View>
+
+        <View>
+          <Pressable onPress={onEditMedPress} style={styles.addMedButton}>
+            <Text style={styles.addMedButtonText}>Edit Medication</Text>
+          </Pressable>
         </View>
 
       </KeyboardAwareScrollView>

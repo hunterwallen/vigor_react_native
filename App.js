@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState, useRef } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, HomeScreen, RegistrationScreen, AddMedScreen, MedScreen } from './src/screens'
+import { LoginScreen, HomeScreen, RegistrationScreen, AddMedScreen, MedScreen, EditMedicationScreen } from './src/screens'
 import { firebase } from './src/firebase/config'
 import { HeaderBackButton } from '@react-navigation/stack'
 
@@ -32,6 +32,7 @@ export default function App() {
             }}/>
             <Stack.Screen name="AddMed" component={AddMedScreen} />
             <Stack.Screen name="ViewMed" component={MedScreen}  />
+            <Stack.Screen name="EditMed" component={EditMedicationScreen}  />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
       </Stack.Navigator>
 

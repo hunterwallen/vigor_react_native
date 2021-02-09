@@ -39,6 +39,7 @@ export default function HomeScreen({navigation, route}) {
                           <Text style={styles.medInfo}>{med.dosage}</Text>
                           <Text style={styles.medTitles}>Dosage Frequency: </Text>
                           <Text style={styles.medInfo}>{med.frequencyInt}x {med.frequencyUnit}</Text>
+                          
                         </Pressable>
                       )
                     })}

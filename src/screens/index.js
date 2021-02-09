@@ -9,3 +9,5 @@ export { default as RegistrationScreen } from './RegistrationScreen/Registration
 export { default as AddMedScreen} from './AddMedScreen/AddMedScreen.js'
 
 export { default as MedScreen} from './MedScreen/MedScreen.js'
+
+export { default as EditMedicationScreen} from './EditMedicationScreen/EditMedicationScreen.js'

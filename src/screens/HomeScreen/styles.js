@@ -69,7 +69,7 @@ export default StyleSheet.create({
       flexWrap: "wrap",
       justifyContent: "center",
       alignContent: "flex-start",
-
+      paddingTop: 20,
       paddingBottom: 20
     },
     medInfo: {
