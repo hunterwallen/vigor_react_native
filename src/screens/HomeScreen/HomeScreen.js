@@ -26,30 +26,42 @@ export default function HomeScreen({navigation, route}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
 
-                <Image
-                    style={styles.logo}
-                    source={require('../../../assets/icon.png')}
-                />
-
                 <View>
-                  <Text onPress={onAddMedPress}>Add Medication</Text>
+                  <Pressable onPress={onAddMedPress} style={styles.addMedButton}>
+                    <Text style={styles.addMedButtonText}>Add Medication</Text>
+                  </Pressable>
                 </View>
 
-                <View style={styles.medCardContainer}>
-                  {route.params.meds.map((med) => {
-                    return(
-                      <Pressable style={styles.medCard} onPress={() => onMedPress(med.id)}>
-                        <Text>{med.name}</Text>
-                      </Pressable>
-                    )
-                  })}
+
+                <View style={styles.mainHomeContentView}>
+                  <Text style={styles.sectionTitle}>Current Medications</Text>
+                  <View style={styles.medCardContainer}>
+                    {route.params.meds.map((med) => {
+                      return(
+                        <Pressable style={styles.medCard} onPress={() => onMedPress(med.id)}>
+                          <Text style={styles.medTitles}>Medication Name: </Text>
+                          <Text style={styles.medInfo}>{med.name}</Text>
+                          <Text style={styles.medTitles}>Dosage: </Text>
+                          <Text style={styles.medInfo}>{med.dosage}</Text>
+                          <Text style={styles.medTitles}>Dosage Frequency: </Text>
+                          <Text style={styles.medInfo}>{med.frequencyInt}x {med.frequencyUnit}</Text>
+                          <Text style={styles.medTitles}>Refill Frequency: </Text>
+                          <Text style={styles.medInfo}>{med.refillFrequencyInt}x {med.refillFrequencyUnit}</Text>
+                          <Text style={styles.medTitles}>Refill Date: </Text>
+                          <Text style={styles.medInfo}>{med.refillDate}</Text>
+                          <Text style={styles.medTitles}>Refills Remaining: </Text>
+                          <Text style={styles.medInfo}>{med.refillsLeft}</Text>
+                        </Pressable>
+                      )
+                    })}
+                  </View>
                 </View>
 
                 <View style={styles.footerView}>
                     <Text>{route.params.name}</Text>
                      <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log Out</Text>
                 </View>
-                
+
             </KeyboardAwareScrollView>
         </View>
     )
