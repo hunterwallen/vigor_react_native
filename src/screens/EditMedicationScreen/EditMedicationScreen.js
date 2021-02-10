@@ -3,7 +3,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import axios from 'axios'
-import DropDownPicker from 'react-native-dropdown-picker'
+import { Picker } from '@react-native-picker/picker'
 
 export default function RegistrationScreen({navigation, route}) {
     const [name, setName] = useState(route.params.med.name)
@@ -71,36 +71,38 @@ export default function RegistrationScreen({navigation, route}) {
                 />
                 <Text>Frequency</Text>
                 <View style={styles.combinedInputs}>
-                  <DropDownPicker
-                    value={frequencyInt}
-                    placeholder="Select one"
-                    items ={[
-                      {label:"1 x" , value: 1},
-                      {label:"2 x" , value: 2},
-                      {label:"3 x" , value: 3},
-                      {label:"4 x" , value: 4},
-                      {label:"5 x" , value: 5},
-                      {label:"6 x" , value: 6},
-                      {label:"7 x" , value: 7},
-                      {label:"8 x" , value: 8},
-                      {label:"9 x" , value: 9},
-                      {label:"10 x" , value: 10}
-                    ]}
-                    defaultValue={frequencyInt}
-                    containerStyle={{height: 40, width: 150}}
-                    onChangeItem={(item)=>{setFrequencyInt(item.value)}} />
+                  <Picker
+                    style={styles.pickers}
+                    selectedValue={frequencyInt}
+                    onValueChange={(value)=>{setFrequencyInt(value)}}  >
 
-                    <DropDownPicker
-                      value={frequencyUnit}
-                      placeholder="Select one"
-                      items ={[
-                        {label:"daily" , value: "daily"},
-                        {label:"weekly" , value: "weekly"},
-                        {label:"monthly" , value: "monthly"},
-                      ]}
+
+                      <Picker.Item label="1 x"  value={1} />
+                      <Picker.Item label="2 x"  value={2} />
+                      <Picker.Item label="3 x"  value={3} />
+                      <Picker.Item label="4 x"  value={4} />
+                      <Picker.Item label="5 x"  value={5} />
+                      <Picker.Item label="6 x"  value={6} />
+                      <Picker.Item label="7 x"  value={7} />
+                      <Picker.Item label="8 x"  value={8} />
+                      <Picker.Item label="9 x"  value={9} />
+                      <Picker.Item label="10 x"  value={10} />
+
+
+                    </Picker>
+
+                    <Picker
+                      style={styles.pickers}
+                      selectedValue={frequencyUnit}
                       defaultValue={frequencyUnit}
-                      containerStyle={{height: 40, width: 150}}
-                      onChangeItem={(item)=>{setFrequencyUnit(item.value)}} />
+                      onValueChange={(value)=>{setFrequencyUnit(value)}} >
+
+                        <Picker.Item label="daily"  value= "daily" />
+                        <Picker.Item label="weekly"  value= "weekly" />
+                        <Picker.Item label="monthly"  value= "monthly" />
+
+                      </Picker>
+
                     </View>
 
                     <Text>Next Refill Date:</Text>
@@ -116,58 +118,59 @@ export default function RegistrationScreen({navigation, route}) {
 
                     <Text>Refill Frequency</Text>
                     <View style={styles.combinedInputs}>
-                      <DropDownPicker
-                        value={refillFrequencyInt}
-                        placeholder="Select one"
-                        items ={[
-                          {label:"1 x" , value: 1},
-                          {label:"2 x" , value: 2},
-                          {label:"3 x" , value: 3},
-                          {label:"4 x" , value: 4},
-                          {label:"5 x" , value: 5},
-                          {label:"6 x" , value: 6},
-                          {label:"7 x" , value: 7},
-                          {label:"8 x" , value: 8},
-                          {label:"9 x" , value: 9},
-                          {label:"10 x" , value: 10}
-                        ]}
+                      <Picker
+                        style={styles.pickers}
+                        selctedValue={refillFrequencyInt}
                         defaultValue={refillFrequencyInt}
-                        containerStyle={{height: 40, width: 150}}
-                        onChangeItem={(item)=>{setRefillFrequencyInt(item.value)}} />
+                        onValueChange={(value)=>{setRefillFrequencyInt(value)}} >
 
-                        <DropDownPicker
-                          value={refillFrequencyUnit}
-                          placeholder="Select one"
-                          items ={[
-                            {label:"daily" , value: "daily"},
-                            {label:"weekly" , value: "weekly"},
-                            {label:"monthly" , value: "monthly"},
-                            {label:"yearly", value: "yearly"}
-                          ]}
+                          <Picker.Item label="1 x"  value={1} />
+                          <Picker.Item label="2 x"  value={2} />
+                          <Picker.Item label="3 x"  value={3} />
+                          <Picker.Item label="4 x"  value={4} />
+                          <Picker.Item label="5 x"  value={5} />
+                          <Picker.Item label="6 x"  value={6} />
+                          <Picker.Item label="7 x"  value={7} />
+                          <Picker.Item label="8 x"  value={8} />
+                          <Picker.Item label="9 x"  value={9} />
+                          <Picker.Item label="10 x"  value={10} />
+
+                        </Picker>
+
+                        <Picker
+                          style={styles.pickers}
+                          selectedValue={refillFrequencyUnit}
                           defaultValue={refillFrequencyUnit}
-                          containerStyle={{height: 40, width: 150}}
-                          onChangeItem={(item)=>{setRefillFrequencyUnit(item.value)}} />
+                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}} >
+
+                            <Picker.Item label="daily"  value= "daily" />
+                            <Picker.Item label="weekly"  value= "weekly" />
+                            <Picker.Item label="monthly"  value= "monthly" />
+                            <Picker.Item label="yearly" value= "yearly" />
+
+                          </Picker>
+
                         </View>
 
                         <Text>Number of Refills Remaining:</Text>
-                        <DropDownPicker
-                          value={refillsLeft}
-                          placeholder="Select one"
-                          items ={[
-                            {label:"1" , value: 1},
-                            {label:"2" , value: 2},
-                            {label:"3" , value: 3},
-                            {label:"4" , value: 4},
-                            {label:"5" , value: 5},
-                            {label:"6" , value: 6},
-                            {label:"7" , value: 7},
-                            {label:"8" , value: 8},
-                            {label:"9" , value: 9},
-                            {label:"10" , value: 10}
-                          ]}
-                          defaultValue={refillsLeft}
-                          containerStyle={{height: 40, width: 150, marginBottom:100}}
-                          onChangeItem={(item)=>{setRefillsLeft(item.value)}} />
+                        <Picker
+                          style={styles.picker}
+                          selectedValue={refillsLeft}
+                          defaultValue={refillFrequencyUnit}
+                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}} >
+
+                            <Picker.Item label="1"  value={1} />
+                            <Picker.Item label="2"  value={2} />
+                            <Picker.Item label="3"  value={3} />
+                            <Picker.Item label="4"  value={4} />
+                            <Picker.Item label="5"  value={5} />
+                            <Picker.Item label="6"  value={6} />
+                            <Picker.Item label="7"  value={7} />
+                            <Picker.Item label="8"  value={8} />
+                            <Picker.Item label="9"  value={9} />
+                            <Picker.Item label="10"  value={10} />
+
+                          </Picker>
 
                 <TouchableOpacity
                     style={styles.button}

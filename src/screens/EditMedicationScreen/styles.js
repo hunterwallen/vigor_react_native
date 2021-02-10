@@ -4,22 +4,23 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
-        alignItems: 'center'
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    title: {
-
-    },
-    logo: {
-        flex: 1,
-        height: 120,
-        width: 90,
-        alignSelf: "center",
-        margin: 30
+    inputTitle: {
+      marginTop: 10,
+      marginLeft: 30,
+      marginRight: 30,
+      fontSize: 15,
+      color: "#263a90"
     },
     input: {
         height: 48,
         borderRadius: 5,
-        overflow: 'hidden',
+
         backgroundColor: 'white',
         marginTop: 10,
         marginBottom: 10,
@@ -35,30 +36,35 @@ export default StyleSheet.create({
       height: 48,
       borderRadius: 10,
       alignItems: "center",
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     buttonTitle: {
         color: 'white',
         fontSize: 16,
         fontWeight: "bold"
     },
-    footerView: {
-        flex: 1,
-        alignItems: "center",
-        marginTop: 20
-    },
-    footerText: {
-        fontSize: 16,
-        color: '#2e2e2d'
-    },
-    footerLink: {
-        color: "#788eec",
-        fontWeight: "bold",
-        fontSize: 16
-    },
+
     combinedInputs: {
       display: "flex",
       flexDirection: "row",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      marginLeft: 30,
+      marginRight: 30,
+      marginTop: 10,
+      marginBottom: 10
+    },
+    pickers: {
+      backgroundColor: "white",
+      width: "48%",
+      borderRadius: 5
+    },
+    picker: {
+      backgroundColor: "white",
+      marginLeft: 30,
+      marginRight: 30,
+      marginTop: 10,
+      marginBottom: 10,
+      borderRadius: 5
     }
 })
