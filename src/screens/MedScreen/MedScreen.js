@@ -36,7 +36,7 @@ export default function MedScreen({navigation, route}) {
           </View>
           <View style={styles.medInfoLine}>
             <Text style={styles.medTitles}>Refill Date: </Text>
-            <Text style={styles.medInfo}>{route.params.med.refillDate}</Text>
+            <Text style={styles.medInfo}>{route.params.med.refillDate.slice(5,10) + "-" + route.params.med.refillDate.slice(0,4)}</Text>
           </View>
           <View style={styles.medInfoLine}>
             <Text style={styles.medTitles}>Refills Remaining: </Text>

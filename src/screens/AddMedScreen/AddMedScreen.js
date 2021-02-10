@@ -5,8 +5,9 @@ import styles from './styles';
 import { firebase } from '../../firebase/config'
 import axios from 'axios'
 import {Picker} from '@react-native-picker/picker'
+import DatePicker from 'react-native-datepicker'
 
-export default function RegistrationScreen({navigation, route}) {
+export default function AddMed({navigation, route}) {
     const [name, setName] = useState('')
     const [dosage, setDosage] = useState('')
     const [frequencyInt, setFrequencyInt] = useState('')
@@ -76,8 +77,10 @@ export default function RegistrationScreen({navigation, route}) {
                   <Picker
                     selectedValue={frequencyInt}
                     style={styles.pickers}
-                    onValueChange={(itemValue)=>{setFrequencyInt(itemValue)}} >
+                    onValueChange={(value)=>{setFrequencyInt(value)}}
+                   >
 
+                      <Picker.Item label="" value= "" />
                     <Picker.Item label="1 x"  value= {1} />
                     <Picker.Item label="2 x"  value= {2} />
                     <Picker.Item label="3 x"  value= {3} />
@@ -93,7 +96,9 @@ export default function RegistrationScreen({navigation, route}) {
                     <Picker
                       selectedValue={frequencyUnit}
                       style={styles.pickers}
-                      onValueChange={(itemValue)=>{setFrequencyUnit(itemValue)}}>
+                      onValueChange={(value)=>{setFrequencyUnit(value)}}
+                    >
+                        <Picker.Item label="" value= "" />
                         <Picker.Item label="daily"  value= "daily" />
                         <Picker.Item label="weekly"  value= "weekly" />
                         <Picker.Item label="monthly"  value= "monthly" />
@@ -101,23 +106,39 @@ export default function RegistrationScreen({navigation, route}) {
                     </View>
 
                     <Text style={styles.inputTitle}>Next Refill Date:</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder='refillDate'
-                        placeholderTextColor="#aaaaaa"
-                        onChangeText={(text) => setRefillDate(text)}
-                        value={refillDate}
-                        underlineColorAndroid="transparent"
-                        autoCapitalize="none"
-                    />
+                    <DatePicker
+                        style={{width: 200}}
+                        date={refillDate}
+                        mode="date"
+                        placeholder="select date"
+                        format="YYYY-MM-DD"
+                        minDate="2021-01-01"
+                        maxDate="2026-01-01"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        customStyles={{
+                          dateIcon: {
+                            position: 'absolute',
+                            left: 0,
+                            top: 4,
+                            marginLeft: 30
+                          },
+                          dateInput: {
+                            marginLeft: 65
+                          }
+                        }}
+                        onDateChange={(date) => {setRefillDate(date)}}
+                      />
 
                     <Text style={styles.inputTitle}>Refill Frequency</Text>
                     <View style={styles.combinedInputs}>
                       <Picker
                         selectedValue={refillFrequencyInt}
                         style={styles.pickers}
-                        onValueChange={(itemValue)=>{setRefillFrequencyInt(itemValue)}}
+                        onValueChange={(value)=>{setRefillFrequencyInt(value)}}
+
                         >
+                            <Picker.Item label="" value= "" />
                           <Picker.Item label="1 x"  value= {1} />
                           <Picker.Item label="2 x"  value= {2} />
                           <Picker.Item label="3 x"  value= {3} />
@@ -134,7 +155,9 @@ export default function RegistrationScreen({navigation, route}) {
                         <Picker
                           selectedValue={refillFrequencyUnit}
                           style={styles.pickers}
-                          onValueChange={(itemValue)=>{setRefillFrequencyUnit(itemValue)}} >
+                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}}
+                         >
+                            <Picker.Item label="" value= "" />
                             <Picker.Item label="daily" value= "daily" />
                             <Picker.Item label="weekly" value= "weekly" />
                             <Picker.Item label="monthly" value= "monthly" />
@@ -146,7 +169,9 @@ export default function RegistrationScreen({navigation, route}) {
                         <Picker
                           selectedValue={refillsLeft}
                           style={styles.picker}
-                          onValueChange={(itemValue)=>{setRefillsLeft(itemValue)}} >
+                          onValueChange={(value)=>{setRefillsLeft(value)}}
+                         >
+                            <Picker.Item label="" value= "" />
                             <Picker.Item label="1"  value= {1} />
                             <Picker.Item label="2"  value= {2} />
                             <Picker.Item label="3"  value= {3} />
