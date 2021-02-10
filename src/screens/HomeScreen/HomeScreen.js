@@ -26,11 +26,37 @@ export default function HomeScreen({navigation, route}) {
     const markRefillDate = () => {
       let refills = {}
       route.params.meds.map((med)=> {
-        refills[med.refillDate] = {marked: true, dotColor: 'blue'}
+        let refillsLeft = Number(med.refillsLeft)
+        if(refillsLeft === 0){
+          return
+        } else {
+            let thisMonth = Number(med.refillDate.slice(5,7))
+            let thisYear = Number(med.refillDate.slice(0,4))
+            let thisDay = Number(med.refillDate.slice(8,10))
+            let nextDate = med.refillDate
+          while(refillsLeft){
+            if(refillsLeft === 1) {
+              refills[nextDate] = {selected: true, marked: true, selectedColor: 'red'}
+              return
+            } else {
+              refills[nextDate] = {selected: true, marked: true, selectedColor: 'blue'}
+              refillsLeft--
+            }
+            thisMonth = Number(thisMonth)
+            if(thisMonth < 9){
+              thisMonth++
+              thisMonth = "0" + thisMonth
+            } else if (thisMonth === 12) {
+              thisMonth = "01"
+              thisYear = thisYear++
+            } else {
+              thisMonth++
+            }
+            nextDate = thisYear + '-' + thisMonth + '-' + thisDay
+          }
+        }
       })
-      console.log(refills);
       setRefillDates(refills)
-      console.log(refillDates);
     }
 
     useEffect(()=> {
