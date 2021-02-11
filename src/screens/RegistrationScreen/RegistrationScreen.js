@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View, Linking } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import LoadingScreen from '../LoadingScreen/LoadingScreen'
 import styles from './styles';
@@ -124,6 +124,11 @@ export default function RegistrationScreen({navigation}) {
                 </TouchableOpacity>
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
+
+                    <Text style={styles.footerLink}
+                        onPress={() => Linking.openURL('https://www.termsfeed.com/live/c24226d9-4e2a-4a37-a940-a8e5a6565c29')}>
+                    Privacy Policy
+                  </Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>
