@@ -135,7 +135,13 @@ export default function AddMed({navigation, route}) {
                       <Picker
                         selectedValue={refillFrequencyInt}
                         style={styles.pickers}
-                        onValueChange={(value)=>{setRefillFrequencyInt(value)}}
+                        onValueChange={(value)=>{
+                          if(refillFrequencyUnit === "monthly"){
+                            setRefillFrequencyInt(1)
+                          } else {
+                            setRefillFrequencyInt(value)
+                          }
+                        }}
 
                         >
                             <Picker.Item label="" value= "" />
@@ -155,11 +161,14 @@ export default function AddMed({navigation, route}) {
                         <Picker
                           selectedValue={refillFrequencyUnit}
                           style={styles.pickers}
-                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}}
+                          onValueChange={(value)=>{
+                            setRefillFrequencyUnit(value)
+                            if(value === "monthly") {
+                              setRefillFrequencyInt(1)
+                            }
+                          }}
                          >
                             <Picker.Item label="" value= "" />
-                            <Picker.Item label="daily" value= "daily" />
-                            <Picker.Item label="weekly" value= "weekly" />
                             <Picker.Item label="monthly" value= "monthly" />
                             <Picker.Item label="yearly" value= "yearly" />
                           </Picker>

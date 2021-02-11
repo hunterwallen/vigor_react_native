@@ -137,30 +137,41 @@ export default function RegistrationScreen({navigation, route}) {
                       <Picker
                         style={styles.pickers}
                         selctedValue={refillFrequencyInt}
-                        onValueChange={(value)=>{setRefillFrequencyInt(value)}}
+                        onValueChange={(value)=>{
+                          if(refillFrequencyUnit === "monthly"){
+                            setRefillFrequencyInt(1)
+                          } else {
+                            setRefillFrequencyInt(value)
+                          }
+                        }}
                         prompt="Select" >
 
-                          <Picker.Item label="1 x"  value={1} />
-                          <Picker.Item label="2 x"  value={2} />
-                          <Picker.Item label="3 x"  value={3} />
-                          <Picker.Item label="4 x"  value={4} />
-                          <Picker.Item label="5 x"  value={5} />
-                          <Picker.Item label="6 x"  value={6} />
-                          <Picker.Item label="7 x"  value={7} />
-                          <Picker.Item label="8 x"  value={8} />
-                          <Picker.Item label="9 x"  value={9} />
-                          <Picker.Item label="10 x"  value={10} />
+                        <Picker.Item label="1 x"  value= {1} />
+                        <Picker.Item label="2 x"  value= {2} />
+                        <Picker.Item label="3 x"  value= {3} />
+                        <Picker.Item label="4 x"  value= {4} />
+                        <Picker.Item label="5 x"  value= {5} />
+                        <Picker.Item label="6 x"  value= {6} />
+                        <Picker.Item label="7 x"  value= {7} />
+                        <Picker.Item label="8 x"  value= {8} />
+                        <Picker.Item label="9 x"  value= {9} />
+                        <Picker.Item label="10 x"  value= {10} />
+
 
                         </Picker>
 
                         <Picker
                           style={styles.pickers}
                           selectedValue={refillFrequencyUnit}
-                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}}
+                          onValueChange={(value)=>{
+                            setRefillFrequencyUnit(value)
+                            if(value === "monthly") {
+                              setRefillFrequencyInt(1)
+                            }
+                          }}
                           prompt="Select" >
 
-                            <Picker.Item label="daily"  value= "daily" />
-                            <Picker.Item label="weekly"  value= "weekly" />
+
                             <Picker.Item label="monthly"  value= "monthly" />
                             <Picker.Item label="yearly" value= "yearly" />
 
@@ -172,7 +183,7 @@ export default function RegistrationScreen({navigation, route}) {
                         <Picker
                           style={styles.picker}
                           selectedValue={refillsLeft}
-                          onValueChange={(value)=>{setRefillFrequencyUnit(value)}}
+                          onValueChange={(value)=>{setRefillsLeft(value)}}
                           prompt="Select" >
 
                             <Picker.Item label="1"  value={1} />
