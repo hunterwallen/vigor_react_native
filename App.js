@@ -34,13 +34,13 @@ export default function App() {
       <NavigationContainer name="auth">
         <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
               <Stack.Screen name="Login" component={LoginScreen} />
-              <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Vigor',
+              <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Home',
                 headerLeft: null
               }}/>
-              <Stack.Screen name="AddMed" component={AddMedScreen} />
-              <Stack.Screen name="ViewMed" component={MedScreen}  />
-              <Stack.Screen name="EditMed" component={EditMedicationScreen}  />
-              <Stack.Screen name="Registration" component={RegistrationScreen} />
+              <Stack.Screen name="AddMed" component={AddMedScreen} options={{title: "Add Medication"}} />
+              <Stack.Screen name="ViewMed" component={MedScreen} options={{title: "Medication Details"}}  />
+              <Stack.Screen name="EditMed" component={EditMedicationScreen}  options={{title: "Edit Medication"}} />
+              <Stack.Screen name="Registration" component={RegistrationScreen} options={{title: "Create Account"}} />
         </Stack.Navigator>
 
       </NavigationContainer>

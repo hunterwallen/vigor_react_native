@@ -124,7 +124,8 @@ export default function AddMed({navigation, route}) {
                             marginLeft: 30
                           },
                           dateInput: {
-                            marginLeft: 65
+                            marginLeft: 65,
+                            backgroundColor: "white"
                           }
                         }}
                         onDateChange={(date) => {setRefillDate(date)}}

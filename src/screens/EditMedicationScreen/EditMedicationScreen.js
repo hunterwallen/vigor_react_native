@@ -50,7 +50,7 @@ export default function RegistrationScreen({navigation, route}) {
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
-                <Text>Medication Name:</Text>
+                <Text style={styles.inputTitle}>Medication Name:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='Medication Name'
@@ -60,7 +60,7 @@ export default function RegistrationScreen({navigation, route}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <Text>Dosage:</Text>
+                <Text style={styles.inputTitle}>Dosage:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='Dosage'
@@ -70,7 +70,7 @@ export default function RegistrationScreen({navigation, route}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <Text>Frequency</Text>
+                <Text style={styles.inputTitle}>Frequency</Text>
                 <View style={styles.combinedInputs}>
                   <Picker
                     style={styles.pickers}
@@ -107,7 +107,7 @@ export default function RegistrationScreen({navigation, route}) {
 
                     </View>
 
-                    <Text>Next Refill Date:</Text>
+                    <Text style={styles.inputTitle}>Next Refill Date:</Text>
                     <DatePicker
                         style={{width: 200}}
                         date={refillDate}
@@ -123,16 +123,19 @@ export default function RegistrationScreen({navigation, route}) {
                             position: 'absolute',
                             left: 0,
                             top: 4,
-                            marginLeft: 0
+                            marginLeft: 30
                           },
                           dateInput: {
-                            marginLeft: 36
+                            marginLeft: 65,
+                            backgroundColor: "white",
+                            borderColor: "white",
+                            borderRadius: 5
                           }
                         }}
                         onDateChange={(date) => {setRefillDate(date)}}
                       />
 
-                    <Text>Refill Frequency</Text>
+                    <Text style={styles.inputTitle}>Refill Frequency</Text>
                     <View style={styles.combinedInputs}>
                       <Picker
                         style={styles.pickers}
@@ -179,7 +182,7 @@ export default function RegistrationScreen({navigation, route}) {
 
                         </View>
 
-                        <Text>Number of Refills Remaining:</Text>
+                        <Text style={styles.inputTitle}>Number of Refills Remaining:</Text>
                         <Picker
                           style={styles.picker}
                           selectedValue={refillsLeft}
@@ -202,7 +205,7 @@ export default function RegistrationScreen({navigation, route}) {
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => editMed()}>
-                    <Text style={styles.buttonTitle}>Edit Medication</Text>
+                    <Text style={styles.buttonTitle}>Save Changes</Text>
                 </TouchableOpacity>
             </KeyboardAwareScrollView>
         </View>

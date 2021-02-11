@@ -51,5 +51,27 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 16,
         fontWeight: "bold"
+      },
+      deleteMedButton: {
+          backgroundColor: "red",
+          marginLeft: 90,
+          marginRight: 90,
+          marginTop: 20,
+          height: 38,
+          borderRadius: 10,
+          alignItems: "center",
+          justifyContent: 'center'
+      },
+      deleteMedButtonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: "bold"
+      },
+      buttonContainer: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+
+        height: 250
       }
 })

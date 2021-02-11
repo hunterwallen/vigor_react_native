@@ -160,10 +160,24 @@ export default function HomeScreen({navigation, route}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
 
+                <View style={styles.logoHeader}>
+                  <Image
+                      style={styles.logo}
+                      source={require('../../../assets/VigorLogo.png')}
+                  />
+                </View>
+
 
                 <View style={styles.mainHomeContentView}>
-                  <Text style={styles.sectionTitle}>Current Medications</Text>
+                  <Text style={styles.sectionTitle}>My Medications</Text>
+
+
+
                   <View style={styles.medCardContainer}>
+                  <TouchableOpacity onPress={onAddMedPress} style={styles.addMedButton}>
+                      <Text style={styles.addMedButtonText}>New Medication</Text>
+                  </TouchableOpacity>
+                  
                     {route.params.meds.map((med) => {
                         return(
                         <Pressable style={styles.medCard} onPress={() => onMedPress(med)} key={med.id}>
@@ -184,22 +198,28 @@ export default function HomeScreen({navigation, route}) {
 
                 <View style={styles.calendarContainer}>
                 <Text style={styles.sectionTitle}>My Calendar</Text>
-                  <Calendar
-                    minDate={'2021-01-01'}
-                    markedDates={refillDates}
-                    markingType={'multi-dot'}
-                    />
-                    <Text style={styles.keyBlue}> • Refill Date</Text>
+                  <View style={styles.calendar}>
+                    <Calendar
+                      minDate={'2021-01-01'}
+                      markedDates={refillDates}
+                      markingType={'multi-dot'}
+                      />
+                      <View style={styles.calendarKey}>
+                        <Text style={{color:"blue"}}> • Next Refill</Text>
+                        <Text style={{color:"red"}}> • Last Refill</Text>
+                      </View>
+
+                    </View>
+
 
                 </View>
 
-                <TouchableOpacity onPress={onAddMedPress} style={styles.addMedButton}>
-                    <Text style={styles.addMedButtonText}>New Medication</Text>
-                </TouchableOpacity>
+
 
                 <View style={styles.footerView}>
-                    <Text>{route.params.name}</Text>
-                     <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log Out</Text>
+                      <TouchableOpacity onPress={onFooterLinkPress} style={styles.logoutButton}>
+                        <Text style={styles.logoutButtonText}>Log Out</Text>
+                     </TouchableOpacity>
                 </View>
 
             </KeyboardAwareScrollView>

@@ -6,20 +6,19 @@ export default StyleSheet.create({
         height: "100%",
         alignItems: 'center',
         justifyContent: "flex-start",
-
+        backgroundColor: "white"
     },
     text: {
-        color: "white",
+        color: "#49a8de",
         fontSize: 30,
         margin: 20,
-        backgroundColor: "#49a8de",
         padding: 10,
         borderRadius: 20
     },
     logo: {
         marginTop: 100,
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 150,
         alignSelf: "center",
 
 

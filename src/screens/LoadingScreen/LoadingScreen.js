@@ -17,7 +17,7 @@ class LoadingScreen extends React.Component {
               style={styles.logo}
               source={require('../../../assets/VigorLogo.png')}
           />
-          <Text style={styles.text}>Welcome</Text>
+          <Text style={styles.text}>Loading...</Text>
         </View>
     )
 

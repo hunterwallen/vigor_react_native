@@ -12,22 +12,49 @@ export default StyleSheet.create({
     footerView: {
         flex: 1,
         alignItems: "center",
-        marginTop: 20
+        marginTop: 40,
+        backgroundColor: "white",
+        padding: 20
     },
-    footerLink: {
-        color: "#788eec",
-        fontWeight: "bold",
-        fontSize: 16
+    logoHeader: {
+      padding: 50,
+      backgroundColor: "whitesmoke",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignContent: "center"
+    },
+    logo: {
+      height: 150,
+      width: 150,
+
+    },
+    logoutButton: {
+      backgroundColor: "#49a8de",
+      padding: 10,
+      width: 100,
+
+      borderRadius: 10,
+      alignItems: "center",
+      justifyContent: 'center',
+      alignSelf: "center",
+
+    },
+    logoutButtonText: {
+      fontSize: 20,
+      color: "white"
     },
     addMedButton: {
         backgroundColor: "#263a90",
-        marginLeft: 30,
-        marginRight: 30,
+        width: 200,
+        height: 50,
         marginTop: 20,
-        height: 48,
+        marginBottom: 20,
         borderRadius: 10,
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignSelf: "center",
+        elevation: 8
     },
     addMedButtonText: {
       fontSize: 20,
@@ -99,6 +126,18 @@ export default StyleSheet.create({
       color: "#263a90",
       paddingBottom: 10
 
+    },
+    calendarKey: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-around",
+      padding: 5,
+      backgroundColor: "white"
+    },
+    calendar: {
+      marginTop: 10,
+      elevation: 8
     }
+
 
 })
